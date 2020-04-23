@@ -249,6 +249,11 @@ preprocessing.add_argument(
     help="Clean page as above, and incorporate the cleaned image in the final "
     "PDF.  Might remove desired content.",
 )
+jobcontrol.add_argument(
+    '--keep-larger-image',
+    action='store_true',
+    help="Keep altered images even if they are larger",
+)
 preprocessing.add_argument(
     '--unpaper-args',
     type=str,
