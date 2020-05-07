@@ -250,9 +250,9 @@ preprocessing.add_argument(
     "PDF.  Might remove desired content.",
 )
 jobcontrol.add_argument(
-    '--keep-larger-image',
+    '--keep-larger',
     action='store_true',
-    help="Keep altered images even if they are larger",
+    help="Keep altered file even if it ends up being larger",
 )
 preprocessing.add_argument(
     '--unpaper-args',

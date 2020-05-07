@@ -414,7 +414,7 @@ def transcode_pngs(pike, images, image_name_fn, root, log, options):
         # If re-coded image is larger don't use it - we test here because
         # pngquant knows the size of the temporary output file but not the actual
         # object in the PDF
-        if (not options.keep_larger_image and
+        if (not options.keep_larger and
                 len(compdata) > int(im_obj.stream_dict.Length)):
             log.debug(
                 f"pngquant: pngquant did not improve over original image "
@@ -543,7 +543,7 @@ def optimize(input_file, output_file, context, save_settings):
     savings = 1 - output_size / input_size
     log.info(f"Optimize ratio: {ratio:.2f} savings: {(100 * savings):.1f}%")
 
-    if (not options.keep_larger_image and savings < 0):
+    if (not options.keep_larger and savings < 0):
         log.info("Image optimization did not improve the file - discarded")
         # We still need to save the file
         with pikepdf.open(input_file) as pike:
@@ -580,7 +580,7 @@ def main(infile, outfile, level, jobs=1):
         jpeg_quality=0,  # Use default
         png_quality=0,
         jb2lossy=False,
-        keep_larger_image=False,
+        keep_larger=False,
     )
 
     with TemporaryDirectory() as td:

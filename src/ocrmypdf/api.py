@@ -233,7 +233,7 @@ def ocr(  # pylint: disable=unused-argument
     keep_temporary_files: bool = None,
     progress_bar: bool = None,
     tesseract_env: Dict[str, str] = None,
-    keep_larger_image: bool = None,
+    keep_larger: bool = None,
 ):
     """Run OCRmyPDF on one PDF or image.
 
