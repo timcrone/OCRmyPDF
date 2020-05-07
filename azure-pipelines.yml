@@ -153,12 +153,13 @@ stages:
           matrix:
             Python37:
               python.version: "3.7"
-            Python38:
-              python.version: "3.8"
+            # Python38:
+            #   python.version: "3.8"
         steps:
-          - task: UsePythonVersion@0
-            inputs:
-              versionSpec: "$(python.version)"
+          # https://github.com/actions/virtual-environments/issues/664
+          # - task: UsePythonVersion@0
+          #   inputs:
+          #     versionSpec: "$(python.version)"
           - bash: |
               brew update
               brew unlink python@2
@@ -169,6 +170,7 @@ stages:
                 leptonica \
                 openjpeg \
                 pngquant \
+                python \
                 tesseract \
                 unpaper
             displayName: "Install system packages"
