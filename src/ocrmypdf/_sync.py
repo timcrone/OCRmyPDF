@@ -353,6 +353,7 @@ def configure_debug_logging(log_filename, prefix=''):
 
 def run_pipeline(options, api=False):
     log = make_logger(options, __name__)
+
     # Any changes to options will not take effect for options that are already
     # bound to function parameters in the pipeline. (For example
     # options.input_file, options.pdf_renderer are already bound.)
